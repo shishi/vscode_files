@@ -1,0 +1,7 @@
+authtoken: [your_token]
+region: jp
+tunnels:
+  rails:
+    proto: http
+    addr: 3000
+#    subdomain: shishi

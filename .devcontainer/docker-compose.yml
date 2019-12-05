@@ -1,0 +1,21 @@
+version: "3.7"
+
+volumes:
+  vscode-server:
+    driver: local
+services:
+  app:
+    image: [your_original_project_builded_image]_dev
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+      args:
+        owner: [repo_owner]
+        repository: [repo_name]
+    user: ruby
+    working_dir: /src
+    volumes:
+      - type: volume
+        source: vscode-server
+        target: /home/ruby/.vscode-server
+    command: ['sleep', 'infinity']
